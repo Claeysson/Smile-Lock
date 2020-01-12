@@ -62,6 +62,15 @@ open class PasswordContainerView: UIView {
         }
     }
     
+    open var buttonBackgroundColor: UIColor! {
+         didSet {
+             guard !isVibrancyEffect else { return }
+             passwordInputViews.forEach {
+                 $0.circleBackgroundColor = buttonBackgroundColor
+             }
+         }
+     }
+    
     open var highlightedColor: UIColor! {
         didSet {
             guard !isVibrancyEffect else { return }
